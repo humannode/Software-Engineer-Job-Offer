@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Dev Job Ad</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0f1117;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 1rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .card {
+      background: #1a1d27;
+      border: 1px solid #2a2d3a;
+      border-radius: 16px;
+      padding: 1.5rem;
+      width: 100%;
+      max-width: 520px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.4);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 1.25rem;
+    }
+
+    .icon-badge {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      background: #12131c;
+      border: 1px solid #2a2d3a;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #f0f1f5;
+      line-height: 1.35;
+      margin-bottom: 4px;
+    }
+
+    .card-rate {
+      font-size: 12px;
+      font-weight: 600;
+      color: #a78bfa;
+      line-height: 1.4;
+    }
+
+    .divider {
+      height: 1px;
+      background: #2a2d3a;
+      margin: 1.1rem 0;
+    }
+
+    .intro {
+      font-size: 13px;
+      color: #9aa0b4;
+      line-height: 1.65;
+    }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #5a607a;
+      margin-bottom: 10px;
+    }
+
+    .list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .list li {
+      font-size: 13px;
+      color: #c8ccdc;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .list li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      min-width: 5px;
+      border-radius: 50%;
+      background: #a78bfa;
+    }
+
+    .perks-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .perk {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .badge-green  { background: #0d2e1a; color: #3ecf8e; }
+    .badge-blue   { background: #0d1e3a; color: #4f9cf9; }
+    .badge-purple { background: #1a1030; color: #a78bfa; }
+    .badge-amber  { background: #2a1a00; color: #f59e0b; }
+
+    .perk-label {
+      font-size: 12px;
+      color: #c8ccdc;
+    }
+
+    .two-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 420px) {
+      .two-cols {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+
+    .stack-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .stack-pill {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: #1a1030;
+      color: #a78bfa;
+      border: 1px solid #2e1f55;
+    }
+
+    .cta-block {
+      background: #12131c;
+      border: 1px solid #2a2d3a;
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 0.85rem;
+    }
+
+    .cta-text {
+      font-size: 12px;
+      color: #9aa0b4;
+      line-height: 1.5;
+      min-width: 0;
+      word-break: break-all;
+    }
+
+    .cta-text strong {
+      color: #f0f1f5;
+      display: block;
+      font-size: 13px;
+      margin-bottom: 2px;
+      word-break: normal;
+    }
+
+    .apply-btn {
+      background: #a78bfa;
+      color: #0f1117;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 360px) {
+      .apply-btn { width: 100%; justify-content: center; }
+    }
+
+    .referral {
+      font-size: 11px;
+      color: #5a607a;
+      text-align: center;
+    }
+
+    .referral span { color: #3ecf8e; }
+  </style>
+</head>
+<body>
+<div class="card">
+
+  <div class="card-header">
+    <div class="icon-badge">🚀</div>
+    <div>
+      <div class="card-title">We're Hiring: Software Engineer — AI Evaluation</div>
+      <div class="card-rate">$40–$80/hr &nbsp;·&nbsp; Fully Remote &nbsp;·&nbsp; Flexible</div>
+    </div>
+  </div>
+
+  <p class="intro">Exciting opportunity for JS/TS/Python/React developers!</p>
+  <p class="intro" style="margin-top:6px;">We're hiring Software Engineers for AI Evaluation work — remote, flexible, and well-paid ($40–$80/hr).</p>
+
+  <div class="divider"></div>
+
+  <div>
+    <div class="section-label">What you'll do</div>
+    <ul class="list">
+      <li>Evaluate and improve AI model outputs</li>
+      <li>Work with cutting-edge AI systems</li>
+      <li>Flexible hours — great for freelancers or side work</li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <div>
+    <div class="section-label">Tech stack</div>
+    <div class="stack-row">
+      <span class="stack-pill">JavaScript</span>
+      <span class="stack-pill">TypeScript</span>
+      <span class="stack-pill">Python</span>
+      <span class="stack-pill">React</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="cta-block">
+    <div class="cta-text">
+      <strong>Ready to apply?</strong>
+      tinyurl.com/ai-dev-job
+    </div>
+    <a href="https://tinyurl.com/ai-dev-job" class="apply-btn" target="_blank">Apply now ↗</a>
+  </div>
+
+  <div class="referral"><span>♦</span>&nbsp; Referrals welcome — feel free to share!</div>
+
+</div>
+</body>
+</html>
